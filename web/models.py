@@ -39,7 +39,7 @@ class Review(models.Model):
     product = models.ForeignKey('Product', models.CASCADE)
 
     def __str__(self):
-        return f'{self.user}: {self.mark}'
+        return f'{self.product}'
 
 
 class Order(models.Model):

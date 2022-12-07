@@ -119,4 +119,3 @@ class EmailView(TemplateView):
         server.sendmail(gmail_user, to, email_text)
         server.close()
         return HttpResponseRedirect(reverse('home'))
-

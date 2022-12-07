@@ -20,6 +20,13 @@
     <form action="{% url 'search_results1' %}?filter=quer" method="get">
         <input name="q" type="text" placeholder="Enter email...">
     </form>
+    {% for product in pr %}
+    <ul>
+        <li><a href="{% url 'products_detail_view' product.pk %}">{{ product.name }}</a></li>
+        <li>{{ product.price }} грн</li>
+        <li><img src="{{ product.img.url }}" width="200px" height="200px"></li>
+    </ul>
+{% endfor %}
 {% else %}
     <div style="position: absolute; right: 50%; transform: translateX(50%); margin-top: 30px;">
         <button onclick="window.location.href = {% url 'reg' %}" type="submit" class="btn btn-outline-info">
@@ -29,13 +36,5 @@
         </button>
     </div>
 {% endif %}
-
-{% for product in pr %}
-    <ul>
-        <li><a href="{% url 'products_detail_view' product.pk %}">{{ product.name }}</a></li>
-        <li>{{ product.price }} грн</li>
-        <li><img src="{{ product.img.url }}" width="200px" height="200px"></li>
-    </ul>
-{% endfor %}
 </body>
 </html>
