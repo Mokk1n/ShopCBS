@@ -9,7 +9,7 @@ from django.views.generic import TemplateView, ListView
 from rest_framework.generics import get_object_or_404
 
 from web.forms import ReviewForm, OrderCreateForm
-from web.models import Product
+from web.models import Product, Review
 
 
 class HomepageView(TemplateView):

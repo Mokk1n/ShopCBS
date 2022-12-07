@@ -33,7 +33,7 @@
 {% for product in pr %}
     <ul>
         <li><a href="{% url 'products_detail_view' product.pk %}">{{ product.name }}</a></li>
-        <li>{{ product.price }}</li>
+        <li>{{ product.price }} грн</li>
         <li><img src="{{ product.img.url }}" width="200px" height="200px"></li>
     </ul>
 {% endfor %}
