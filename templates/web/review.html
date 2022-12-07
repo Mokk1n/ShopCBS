@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review</title>
+</head>
+<body>
+<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+    {% for field in form %}
+    <br>
+    {% if field.name == 'text' or field.name == 'mark' %}
+    {{ field }}
+    {% else %}
+    {{ field.as_hidden }}
+    {% endif %}
+    {% endfor %}
+    <button type="submit" class=" btn btn-default">Save</button>
+</form>
+</body>
+</html>

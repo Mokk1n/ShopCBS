@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+<ul>
+    {% if pr.name %}
+    <li>{{ pr.name }}</li>
+    {% endif %}
+    {% if pr.price %}
+    <li>{{ pr.price }}</li>
+    {% endif %}
+    {% if pr.img.url %}
+    <li><img src="{{ pr.img.url }}" width="200px" height="200px"></li>
+    {% endif %}
+    {% if pr.description %}
+    <li>{{ pr.description }}</li>
+    {% endif %}
+</ul>
+<a href="{% url "order_create" pr.pk %}" class="button">
+     Make Order!
+</a>
+<h3><a href="{% url 'products_review_view' pr.pk%}">Add a review</a></h3>
+<h3><a href="{% url 'home' %}">Homepage</a></h3>
+</body>
+</html>

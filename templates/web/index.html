@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+    <div style="position: absolute; right: 50%; transform: translateX(50%); margin-top: 30px;">
+        <button onclick="window.location.href = {% url 'exit' %}" type="submit" class="btn btn-outline-info">Выход
+        </button>
+    </div>
+    <h5><a href="{% url 'home' %}?filter=mobile">mobile</a></h5>
+    <h5><a href="{% url 'home' %}?filter=notebook">notebook</a></h5>
+    <h5><a href="{% url 'home' %}?filter=pc">pc</a></h5>
+    <form action="{% url 'search_results' %}?filter=query" method="get">
+        <input name="q" type="text" placeholder="Search...">
+    </form>
+    <h1>news subscriptions</h1>
+    <form action="{% url 'search_results1' %}?filter=quer" method="get">
+        <input name="q" type="text" placeholder="Enter email...">
+    </form>
+{% else %}
+    <div style="position: absolute; right: 50%; transform: translateX(50%); margin-top: 30px;">
+        <button onclick="window.location.href = {% url 'reg' %}" type="submit" class="btn btn-outline-info">
+            Регистрация
+        </button>
+        <button onclick="window.location.href = {% url 'login' %}" type="submit" class="btn btn-outline-info">Вход
+        </button>
+    </div>
+{% endif %}
+
+{% for product in pr %}
+    <ul>
+        <li><a href="{% url 'products_detail_view' product.pk %}">{{ product.name }}</a></li>
+        <li>{{ product.price }}</li>
+        <li><img src="{{ product.img.url }}" width="200px" height="200px"></li>
+    </ul>
+{% endfor %}
+</body>
+</html>
