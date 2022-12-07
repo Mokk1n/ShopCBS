@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Shop</title>
 </head>
 <body>
 {% if user.is_authenticated %}
     <div style="position: absolute; right: 50%; transform: translateX(50%); margin-top: 30px;">
-        <button onclick="window.location.href = {% url 'exit' %}" type="submit" class="btn btn-outline-info">Выход
+        <button onclick="window.location.href = {% url 'exit' %}" type="submit" class="btn btn-outline-info">Exit
         </button>
     </div>
     <h5><a href="{% url 'home' %}?filter=mobile">mobile</a></h5>
@@ -30,9 +30,9 @@
 {% else %}
     <div style="position: absolute; right: 50%; transform: translateX(50%); margin-top: 30px;">
         <button onclick="window.location.href = {% url 'reg' %}" type="submit" class="btn btn-outline-info">
-            Регистрация
+            Registration
         </button>
-        <button onclick="window.location.href = {% url 'login' %}" type="submit" class="btn btn-outline-info">Вход
+        <button onclick="window.location.href = {% url 'login' %}" type="submit" class="btn btn-outline-info">login
         </button>
     </div>
 {% endif %}

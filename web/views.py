@@ -83,7 +83,8 @@ class OrderView(TemplateView):
         if not request.user.is_authenticated:
             return HttpResponseRedirect(reverse('login'))
         order = get_object_or_404(Product, pk=pk)
-        self.extra_context = {'form': OrderCreateForm(data={'product': order.pk, 'user': request.user.pk})}
+        self.extra_context = {
+            'form': OrderCreateForm(data={'product': order.pk, 'user': request.user.pk})}
         return self.render_to_response(self.get_context_data(**kwargs))
 
     def post(self, request: django.core.handlers.wsgi.WSGIRequest, *args, **kwargs):
