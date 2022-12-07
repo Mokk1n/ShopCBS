@@ -52,10 +52,10 @@ class SearchResultsView(TemplateView):
 class DetailView(TemplateView):
     template_name = 'web/det.html'
 
-    def get(self, request: django.core.handlers.wsgi.WSGIRequest, pk, *args, **kwargs):
+    def get(self, request: django.core.handlers.wsgi.WSGIRequest, *args, **kwargs):
         if not request.user.is_authenticated:
             return HttpResponseRedirect(reverse('login'))
-        product = get_object_or_404(Product, pk=pk)
+        product = get_object_or_404(Product, pk=kwargs.get('pk'))
         self.extra_context = {"pr": product}
         return self.render_to_response(self.get_context_data(**kwargs))
 
